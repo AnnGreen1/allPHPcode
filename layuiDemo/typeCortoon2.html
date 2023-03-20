@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='txt'></div>
+
+
+
+    <script>
+        var str = '';
+        time = 0;
+        //var source='这是一个传说中的打字动画';
+        var source = ["这", "是", "一", "个", "传", "说", "中", "的", "打", "字", "动", "画",""];
+
+        function sleep(numberMillis)
+        {
+            var now = new Date();
+            var exitTime = now.getTime() + numberMillis;
+            while (true) 
+            {
+                now = new Date();
+                if (now.getTime() > exitTime)
+                    return;
+            }
+        }
+
+        var ele = document.getElementById('txt');
+
+        window.setInterval
+            (
+                function () {
+                    str += source[time % source.length];
+                    time++;
+                    ele.innerHTML = str;
+                    //sleep(500);
+
+                    if ((time % source.length) == 0) {
+                        sleep(5000);
+                        str = '';
+                    }
+                },
+                500
+            );
+
+        //console.log(ele.innerHTML);//ele.innerHTML  这是一个传说中的打字动画 
+    </script>
+</body>
+
+</html>

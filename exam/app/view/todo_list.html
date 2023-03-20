@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页</title>
+</head>
+
+<body>
+  <div>
+
+    <div>
+      <div id="container">
+        <a href="./index.php?controller=todolist&method=add" class="layui-btn">
+          <i class="layui-icon layui-icon-add-circle"></i>
+          添加用户
+        </a>
+        <table class="layui-table">
+          <thead>
+            <tr>
+              <th>编号</th>
+              <th>内容</th>
+              <th>完成</th>
+              <th>时间</th>
+            </tr>
+          </thead>
+          <tbody>
+            { foreach from=$data item=user key=key name=name }
+            <tr>
+              <td>{$user.id}</td>
+      
+              <td>{$user.content}</td>
+              <td>{$user.iscomplate}</td>
+              <td>{$user.create_time}</td>
+              <td>
+                <a class='layui-btn layui-btn-sm' href="./index.php?controller=Users&method=edit&id={$user.id}">编辑</a>
+                <button class="layui-btn layui-btn-sm layui-btn-danger" onclick="deleteUser({$user.id}, '{$user.name}')">删除</button>
+              </td>
+            </tr>
+            { /foreach }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+ 
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

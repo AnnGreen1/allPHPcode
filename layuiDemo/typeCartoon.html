@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .caret::after {
+            content: "";
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            margin-bottom: -2px;
+            margin-left: -2px;
+            background-color: #333;
+            animation: blink-caret .5s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="typing">
+        <span class="typing-text">这是一个传说中的打字动画</span>
+        <i class="caret"></i>
+    </div>
+
+
+    <script>
+       // for (i = 1; i > 0; i++) {
+            var box = document.getElementsByClassName('typing-text')[0];
+            var str = box.innerText;
+            var i = 0;
+            box.innerText = '';
+            var typing = setInterval(function () {
+                box.innerText += str[i++];
+                i >= str.length && clearInterval(typing);
+            }, 200);
+        //}
+    </script>
+</body>
+
+</html>

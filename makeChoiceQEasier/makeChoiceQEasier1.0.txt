@@ -1,0 +1,4 @@
+1，无phpmaile验证码
+2，没用MVC，smarty和thinkphp
+3，无分页
+4，随机分配题目没有改

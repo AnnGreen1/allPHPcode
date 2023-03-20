@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="course-article course-article-crumbs l">
+        <div class="course-info layui-clear">
+            <div class="crumbs"><a href="/doc/chrome-devtools/">Chrome 开发者工具中文文档</a> &gt;&gt;<a
+                    href="/doc/chrome-devtools/console/">使用 Console(控制台)</a>
+                <div class="to">
+                    <div class="g-combobox"><a class="target"><strong>其他教程参考</strong><i
+                                class="layui-icon layui-icon-down"></i></a>
+                        <div class="g-transition" style="height: 0px; opacity: 0; display: none;">
+                            <ul>
+                                <li><a href="/doc/chrome-devtools/console/console-write/"
+                                        title="在控制台中诊断和打印日志">在控制台中诊断和打印日志</a></li>
+                                <li><a href="/doc/chrome-devtools/console/structured-data/" title="比较类似的数据对象">比较类似的数据对象</a>
+                                </li>
+                                <li><a href="/doc/chrome-devtools/console/track-executions/" title="测量和计数执行">测量和计数执行</a>
+                                </li>
+                                <li><a href="/doc/chrome-devtools/console/track-exceptions/" title="​异常和错误处理">​异常和错误处理</a>
+                                </li>
+                                <li><a href="/doc/chrome-devtools/console/console-reference/" title="Console API 参考">Console
+                                        API 参考</a></li>
+                                <li><a href="/doc/chrome-devtools/console/expressions/" title="计算表达式">计算表达式</a></li>
+                                <li><a href="/doc/chrome-devtools/console/events/" title="监听事件">监听事件</a></li>
+                                <li><a href="/doc/chrome-devtools/console/command-line-reference/"
+                                        title="命令行API参考">命令行API参考</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="mb-10 manual-h1-style">​异常和错误处理</h1>
+            <div class="course-img l"><img src="https://img.php.cn/upload/study/000/000/009/5c28640697e42811.jpg"
+                    alt="​异常和错误处理"></div>
+            <div class="describe l ml-10">
+                <div class="describe-firstdiv">如果你能得到页面异常和JavaScript错误的细节，在实际工作中非常有用
+                    。当页面抛出异常或脚本产生错误时，Console(控制台)面板会提供明确的可靠信息，以帮助您找到并解决问题。</div>
+                <div class="bottom describe-firstdiv-bottom html-mt-10"><span class="describe-span"><img
+                            class="manual-tpl-teacher"
+                            src="https://img.php.cn/upload/avatar/000/010/003/5c4c267e6e0ae403.png"
+                            alt="前端控">前端控</span><span class="describe-span">更新时间：2019-01-07 15:41:25</span></div>
+            </div>
+        </div>
+        <div class="course-list-nav mt-20 layui-clear">
+            <ul class="l-li">
+                <li><a href="javascript:void(0)" class="on">具体内容</a></li>
+                <li><a href="#a2">相关视频</a></li>
+                <li><a href="#a3">相关知识</a></li>
+                <li><a href="#a4">最新评论</a></li>
+            </ul>
+        </div>
+        <div class="course-content">
+            <h1 id="异常和错误处理">异常和错误处理</h1>
+            <p>您需要修复网页抛出的异常和在JavaScript中调试错误。</p>
+            <p>如果你能得到页面异常和JavaScript错误的细节，在实际工作中非常有用 。当页面抛出异常或脚本产生错误时，<code>Console</code>(控制台)面板会提供明确的可靠信息，以帮助您找到并解决问题。</p>
+            <p>在<code>Console</code>(控制台)面板中，您可以跟踪异常及跟踪导致异常的执行路径，显式地或隐式地捕获它们（或忽略它们），甚至可以设置错误处理程序来自动收集和处理异常数据。</p>
+            <h3 id="tldr">TL;DR</h3>
+            <ul>
+                <li>打开<code>Pause on Exceptions</code>(异常时暂停)，当异常触发时可以调试代码上下文。</li>
+                <li>使用<code>console.trace</code>打印当前JavaScript调用栈。</li>
+                <li>在代码中放置断言并使用<code>console.assert()</code>抛出异常。</li>
+                <li>使用<code>window.onerror</code>记录浏览器中发生的错误。</li>
+            </ul>
+            <h2 id="追踪异常">追踪异常</h2>
+            <p>当出现问题时，打开DevTools控制台（<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd>（Windows /
+                Linux）或<kbd>Cmd</kbd>+<kbd>Opt</kbd>+<kbd
+                    class="kbd">J</kbd>（Mac））可以查看JavaScript错误消息。每条消息都有一个指向文件名和行号的链接，点击链接可直接跳到该文件出错的行。</p>
+            <p>一个异常的示例：</p>
+            <p style="text-align: center;"><img src="https://img.php.cn/upload/study/000/000/009/5c28640697e42811.jpg"></p>
+            <h3 id="查看异常栈跟踪"><strong>查看异常栈跟踪</strong></h3>
+            <p>有时候不能明确知道错误是哪个执行路径导致的。完整的 JavaScript 调用栈将一直伴随控制台中的异常。展开这些控制台消息可以查看堆栈帧，点击其中的链接就可以跳转到代码中的相应的位置：</p>
+            <p style="text-align: center;"><img src="https://img.php.cn/upload/study/000/000/009/5c286409e42ad634.jpg"></p>
+            <h3 id="javascript异常时暂停"><strong>JavaScript异常时暂停</strong></h3>
+            <p>下一次抛出异常时，暂停JavaScript执行并检查其调用栈，变量作用域和应用的状态。<code>Sources</code>(源文件)面板顶部的三态停止按钮可以使您在不同的异常处理模式之间切换：<img
+                    src="https://img.php.cn/upload/image/964/421/206/1546150974280466.png" title="1546150974280466.png"
+                    alt="3.png"></p>
+            <p>选择暂停所有异常，或仅在未捕获的异常时暂停，或者您可以忽略异常。</p>
+            <p style="text-align: center;"><img src="https://img.php.cn/upload/study/000/000/009/5c28640dbef1d360.jpg"></p>
+            <h3 id="打印堆栈跟踪"><strong>打印堆栈跟踪</strong></h3>
+            <p>通过将日志消息打印到控制台，可以更好地了解您的网页的行为。通过包括关联的堆栈跟踪，使日志条目更加丰富。有几种方法可以打印堆栈。</p>
+            <h3 id="errorstack"><strong>Error.stack</strong></h3>
+            <p>每个<code>Error</code>对象都有一个名为<code>stack</code>的属性，其中包含堆栈跟踪信息：</p>
+            <p style="text-align: center;"><img src="https://img.php.cn/upload/image/150/268/298/1546151003954763.jpg"
+                    title="1546151003954763.jpg" alt="5.jpg"></p>
+            <h3 id="consoletrace"><strong>console.trace()</strong></h3>
+            <p>代码中手动调用console.trace()，也可以打印当前 JavaScript 调用栈：</p>
+            <p style="text-align: center;"><img src="https://img.php.cn/upload/image/750/849/472/1546151025274268.jpg"
+                    title="1546151025274268.jpg" alt="6.jpg"></p>
+            <h3 id="consoleassert"><strong>console.assert()</strong></h3>
+            <p>通过调用<code>console.assert()</code>(错误条件作为第一个参数)将断言放在JavaScript代码中。当这个表达式（第一个参数）的计算结果为<code>false</code>时，您将看到相应的控制台记录：
+            </p>
+            <p style="text-align: center;"><img src="https://img.php.cn/upload/image/200/160/780/1546151033209448.jpg"
+                    title="1546151033209448.jpg" alt="7.jpg"></p>
+            <h2 id="如何检查堆栈跟踪以找到错误源">如何检查堆栈跟踪以找到错误源</h2>
+            <p>让我们看看如何使用刚才学到的工具，并找出错误的真正原因。这里有一个简单的HTML页面，其中包含两个脚本：</p>
+            <p style="text-align: left;"><img src="https://img.php.cn/upload/image/894/975/852/1546151045742988.png"
+                    title="1546151045742988.png" alt="8.png"></p>
+            <p>当用户点击页面时，段落（<code>&lt;p&gt;</code>标签）内的文本将被改变，并调用<code>lib.js</code>提供的<code>callLibMethod()</code>函数。</p>
+            <p>此函数打印一个<code>console.log</code>，然后调用<code>console.slog</code>，一个不是由Console API提供的方法。 这应该会触发一个错误。</p>
+            <p>当页面运行并点击它时，会触发这个错误：</p>
+            <p><img src="https://img.php.cn/upload/image/571/509/639/1546151060533785.png" title="1546151060533785.png"
+                    alt="9.png"></p>
+            <p>单击箭头可以展开错误消息：</p>
+            <p><img src="https://img.php.cn/upload/image/965/477/779/1546151065597913.png" title="1546151065597913.png"
+                    alt="10.png"></p>
+            <p>控制台告诉您，错误是在<code>lib.js</code>第4行中触发的，它又是由<code>script.js</code>第3行中<code>addEventListener</code>回调的一个匿名函数触发。
+            </p>
+            <p>这是一个非常简单的例子，但不管多复杂的调试都遵循相同的过程。</p>
+            <h2 id="使用windowonerror处理运行时异常">使用window.onerror处理运行时异常</h2>
+            <p>Chrome公开了<code>window.onerror</code>的处理函数，每当在JavaScript代码执行中发生错误时调用。每当 JavaScript
+                抛出的异常在<code>window</code>上下文中，并且没有被<code>try / catch</code>捕获时，该函数被调用，异常消息（message），抛出异常的文件URL（url）和行号（line），作为三个参数依次传递。
+            </p>
+            <p>您可能会发现设置一个错误处理程序，收集有关未捕获异常的信息，并使用AJAX POST调用将其报告给您的服务器的时候很有用，例如。通过这种方式，您可以记录用户在浏览器中所发生的所有错误，并通知他们。</p>
+            <p>使用<code>window.onerror</code>的示例：</p>
+            <p><img src="https://img.php.cn/upload/image/262/977/155/1546151070517318.jpg" title="1546151070517318.jpg"
+                    alt="11.jpg"></p>
+        </div>
+        <div class="course-pages">
+            <div class="prev">← <a href="/doc/chrome-devtools/console/track-executions/">测量和计数执行</a></div>
+            <div class="next"><a href="/doc/chrome-devtools/console/console-reference/">Console API 参考 →</a></div>
+        </div>
+        <div class="diy-main course-time-list layui-clear" id="a2"></div>
+        <div class="diy-main course-time-list layui-clear" id="a3"></div>
+    </div>
+</body>
+</html>

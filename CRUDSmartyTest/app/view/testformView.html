@@ -1,0 +1,40 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view</title>
+</head>
+<body>
+    <form action="./index.php?controller=testform&method=select" method="get">
+        <input type="text" name="select">
+        <button>查询</button>
+    </form>
+    <table class="layui-table">
+        <thead>
+          <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>密码</th>
+          </tr>
+        </thead>
+        <tbody>
+          { foreach from=$data item=user key=key name=name }
+          <tr>
+            <td>{$user.id}</td>
+            <td>{$user.username}</td>
+            <td>{$user.password}</td>
+            <td>
+              <a class='layui-btn layui-btn-sm' href="./index.php?controller=Users&method=edit&id={$user.id}">编辑</a>
+              <button class="layui-btn layui-btn-sm layui-btn-danger" onclick="deleteUser({$user.id}, '{$user.name}')">删除</button>
+            </td>
+          </tr>
+          { /foreach }
+        </tbody>
+      </table>
+</body>
+</html>
+
+
+ -->
